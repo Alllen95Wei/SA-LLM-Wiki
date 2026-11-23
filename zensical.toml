@@ -11,6 +11,7 @@ nav = [
         { "Shell：命令列、管線與文字處理" = "shell.md" },
         { "Shell 腳本設計：流程控制、健壯性與 sed / awk" = "shell-programming.md" },
         { "Docker 基礎：容器概念、安裝與常用指令" = "docker-basic.md" },
+        { "檔案系統：架構、Inode、連結與權限管理" = "filesystem.md" },
     ] },
     # 建立跨章比較或綜合整理頁時，取消註解並加入此分組：
     # { "跨章比較與綜合整理" = [

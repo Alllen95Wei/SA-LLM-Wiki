@@ -66,3 +66,12 @@ title: "演進日誌"
   - 移除 `wiki/shell-programming.md` 「投影片未展開」提示框中夾帶之外部範例代碼與未載術語（涵蓋第 3、6、7 節提示框修訂），確保嚴格忠於來源。
   - 於 `wiki/shell.md` 三處「投影片未展開」提示框補上前往 `wiki/shell-programming.md` 的跨頁連結。
   - 修正 `slides/shell-programming.md` 與 `slides/docker-basic.md` 中 `<pre class="mermaid">` 內原始 `<` 字元，確保 HTML 輸出零歧義。
+
+## [2026-11-23] ingest | 10_FileSystem.pdf
+
+- **來源檔案**：`10_FileSystem.pdf`（p.1–44）
+- **新增頁面**：
+  - 主題講義：`wiki/filesystem.md`（涵蓋 `ls -l` 欄位拆解、VFS 與系統呼叫分層、Pathname 與 `hier(7)` 目錄用途、`mount` / `/etc/fstab` / `umount` + `lsof`、七大檔案類型與 UNIX domain socket / Pipes / `mkfifo`、Inode 與分割區四大區塊、Hard Link vs. Symbolic Link 三階段實驗、`chmod` 與特殊權限 `4000/2000/1000`、`umask` 位元遮罩逐位演算、File Protection 最低權限表、`chown`/`chgrp`，以及 Journaling / CoW / File Attribute Extension）
+  - 教學型簡報：`slides/filesystem.md`（以 `wiki/filesystem.md` 為知識來源製作，依使用者需求擴增為 33 張投影片、其中單元四用 11 張專頁細講 `rwx` Bit Mask、特殊位元與 `umask` 逐位演算，含學習地圖、5 個單元過場頁與 5 張 Mermaid 圖表）
+- **更新檔案**：`zensical.toml`（於 `課程主題筆記` 排入 `filesystem.md` 第 4 順位）、`wiki/index.md`（狀態更新為 `已匯入` 並加入講義與教學簡報連結）、`wiki/shell.md` 與 `wiki/shell-programming.md`（補上權限與管線跨主題雙向連結）。
+- **範圍與略過說明**：依聚焦 Debian Linux 原則，略過 FreeBSD Handbook 網址（p.2）、FreeBSD `hier(7)` 專屬目錄 `/usr/src`/`/usr/obj`/`/var/db/ports`（p.13）、FreeBSD 裝置路徑 `/dev/ad*` 與 `ufs` `/etc/fstab` 實例（p.14, 16–17）、`fstat` 與 `/usr/ports` 範例輸出（p.17–18）、`(FreeBSD)` ELF 標籤與 `.tcshrc`（p.20, 32），以及整段 `Appendix: FreeBSD bonus flags`（`chflags`、`ls -ol`、`wheel` 等，p.39–41）；投影片未展開細節（`ls -l` 第三欄連結數關聯、`/etc/fstab` `Dump`/`Pass#` 與詳細選項、匿名 Pipe 程式碼、`inode` `owners(2)`/`timestamps(3)` 子欄位名、`setgid` 執行檔範例與無 `x` 時的顯示符號、`fsck`/`xattr` 操作指令）已明確標註。

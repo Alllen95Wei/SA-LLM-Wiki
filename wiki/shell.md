@@ -647,6 +647,7 @@ awk '{print $1}' access.log \
 ### 後續跨主題延伸脈絡
 - **腳本設計與進階文字處理**：本主題中提及的 `${var}` 參數展開、Signals（`SIGHUP`/`SIGINT`/`SIGTERM`/`SIGKILL`/`SIGSTOP`）、ERE 正規表達式、`sed` 位址與旗標，以及 `awk` `BEGIN`/`END` 與內建變數，皆於 [Shell 腳本設計：流程控制、健壯性與 sed / awk](shell-programming.md) 完整展開。
 - **容器環境與實務操作銜接**：[Docker 基礎：容器概念、安裝與常用指令](docker-basic.md) 中的安裝腳本（先 `curl -o` 下載再 `sudo sh ./get-docker.sh`）、`$USER` 變數與 `docker exec -it ... bash/sh`，皆延續本單元的互動式 Shell、變數與安全執行觀念。
+- **檔案系統、權限與管線本質**：本單元提及的 `ls -l`、`rm`、管線（Pipes）與預設權限管理，可搭配 [檔案系統：架構、Inode、連結與權限管理](filesystem.md) 深入理解 Inode、目錄最低權限、`umask` 位元遮罩與 Named Pipe（`mkfifo`）。
 - 本主題提及的 `systemd`（第 4 單元）、`/etc/passwd` 與 `getent`（第 1、6 單元）、`sudo`（考前習慣）、`cron` 與自動化腳本執行（第 2 單元），將於後續對應主題講義建立雙向連結與跨章補充。
 
 ### 已略過之 FreeBSD / `tcsh` 專屬內容

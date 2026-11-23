@@ -599,6 +599,7 @@ fi
 ## 跨主題關聯與範圍備註
 
 - **前導主題**：本頁延續並展開 [Shell：命令列、管線與文字處理](shell.md) 中介紹的基礎變數展開、I/O 重導向、Signal 與 `grep`/`sed`/`awk` 概念；建議交互複習。
+- **權限與執行延伸**：腳本所需的 `chmod u+x` 與「執行腳本需同時具備檔案 `rx` 與目錄 `x` 權限（對比執行二進位檔只需檔案 `x`）」等底層檔案保護機制，詳見 [檔案系統：架構、Inode、連結與權限管理](filesystem.md)。
 - **已略過之 FreeBSD / `tcsh` 專屬內容**：依聚焦 Debian Linux 原則，略過 `p.6` 的 FreeBSD 與 `tcsh` 歷史介紹、`p.47` 的 FreeBSD 系統括註與 `p.62` 的 FreeBSD manual pages 參照。
 - **投影片未展開彙整**：Debian `/bin/sh` 具體底層實作名稱（p.6）、`for f in *.log` 遇到無匹配項目的具體處理代碼（p.27）、非 POSIX `local` 變數實作語法（p.32）、除 `set -u`/`set -x` 外的其餘 Shell 選項（p.38）、BRE 跳脫規則逐項清單（p.45, 47），以及 `sed` 原地編輯／外部腳本載入旗標與進階空間（p.51, 53）。
 
