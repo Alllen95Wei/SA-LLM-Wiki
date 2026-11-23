@@ -297,7 +297,7 @@ flowchart LR
 
 ### 跨主題延伸脈絡
 - **前導檔案系統觀念**：本主題的分割區、`/etc/fstab`、掛載點管理、`umount` 與 CoW（Copy-on-Write）底層原理，銜接自 [檔案系統：架構、Inode、連結與權限管理](filesystem.md)。（`LVM.pdf, p.10-11, 18`；`10_FileSystem.pdf, p.14-18, 43`）
-- **後續 Btrfs 比較銜接**：本單元實作已採用 `mkfs.btrfs` 與 `btrfs filesystem resize`，且同時介紹了 LVM 層級的 CoW 快照與 Thin Pool 儲存池；待匯入下一份 **`BTRFS.pdf`** 後，將於 wiki 建立跨章比較整理以對比 LVM 與 Btrfs 在儲存池與快照管理上的異同。（`LVM.pdf, p.10-11, 18, 29`）
+- **後續 Btrfs 比較銜接**：本單元實作已採用 `mkfs.btrfs` 與 `btrfs filesystem resize`，且同時介紹了 LVM 層級的 CoW 快照與 Thin Pool 儲存池；關於 Subvolume、Flat／Nested 佈局與無內建 rollback 的 Btrfs 快照細節，請接續閱讀 [Btrfs（B-Tree Filesystem）：Subvolume、佈局、快照與遷移實戰](btrfs.md)（兩者之跨章比較整理將於後續再行規劃建立）。（`LVM.pdf, p.10-11, 18, 29`）
 
 ### FreeBSD 排除說明
 - 經逐頁檢視 `LVM.pdf`（p.1–31），全份投影片完全以 Debian 13（`trixws`）與 Linux Device Mapper 撰寫並附有實機截圖，**無 FreeBSD 專屬內容需略過**。

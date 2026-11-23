@@ -22,7 +22,7 @@ title: "首頁與總目錄"
 | `07_User_Management.pdf` | 待匯入 | — | — | — |
 | `10_FileSystem.pdf` | 已匯入 | [檔案系統：架構、Inode、連結與權限管理](filesystem.md) | [開啟簡報](slides/filesystem.html){ target="_blank" } | 主題式完整講義（已略過 FreeBSD 專屬內容與 bonus flags） |
 | `LVM.pdf` | 已匯入 | [邏輯捲宗管理（LVM）：架構、精簡配置、快照與磁碟擴縮實戰](lvm.md) | [開啟簡報](slides/lvm.html){ target="_blank" } | 主題式完整講義（Debian 13 實戰，無 FreeBSD 內容） |
-| `BTRFS.pdf` | 待匯入 | — | — | — |
+| `BTRFS.pdf` | 已匯入 | [Btrfs（B-Tree Filesystem）：Subvolume、佈局、快照與遷移實戰](btrfs.md) | [開啟簡報](slides/btrfs.html){ target="_blank" } | 主題式完整講義（Debian 13 實戰，無 FreeBSD 內容） |
 
 ## 課程主題筆記（Topics）
 
@@ -31,6 +31,7 @@ title: "首頁與總目錄"
 - [Docker 基礎：容器概念、安裝與常用指令](docker-basic.md)（[教學簡報](slides/docker-basic.html){ target="_blank" }）：涵蓋容器／映像檔與 Linux namespaces、Container vs. VM 架構與四點對比、Docker / `containerd` / OCI / `shim` / `runc` 與 `Podman` 堆疊分工、Linux 官方安裝／`systemd` 啟用與 `docker` 群組設定、Docker Workflow、`docker pull`（Tag 與多層結構）、`docker run`（含 Named Volumes 與 Bind Mount）、`docker exec`、`docker logs` 與 `ps`/`stop`/`restart`/`rm` 管理（`Docker_Basic.pdf, p.1-22`）。
 - [檔案系統：架構、Inode、連結與權限管理](filesystem.md)（[教學簡報](slides/filesystem.html){ target="_blank" }）：涵蓋 `ls -l` 八欄、VFS 與系統呼叫分層、Pathname 與 `hier(7)` 目錄配置、`mount` / `/etc/fstab` / `umount` + `lsof`、七大檔案類型與 Socket / Pipe（`mkfifo`）、Inode 與分割區四大區塊、Hard Link vs. Symbolic Link 三階段實驗、`chmod` 與特殊權限 `4000/2000/1000`、`umask` 位元遮罩運算、File Protection 最低權限表、`chown`/`chgrp`，以及 Journaling / CoW / 擴充屬性（`10_FileSystem.pdf, p.1-44`）。
 - [邏輯捲宗管理（LVM）：架構、精簡配置、快照與磁碟擴縮實戰](lvm.md)（[教學簡報](slides/lvm.html){ target="_blank" }）：涵蓋 Device Mapper 儲存池、`PV → VG → LV` 三層架構與 `PE / LE`（預設 `4MB`）、Thin Provisioning（`Thin Pool` 與 `Thin LV`）、CoW 快照（`Not backup!`、`umount` + `lvconvert --merge`），以及新增／擴充（Bottom → Top）對比縮容／拆碟（Top → Bottom）完整實戰（`LVM.pdf, p.1-31`）。
+- [Btrfs（B-Tree Filesystem）：Subvolume、佈局、快照與遷移實戰](btrfs.md)（[教學簡報](slides/btrfs.html){ target="_blank" }）：涵蓋五大核心特性、`ext4`/`Btrfs`/`ZFS` 選型、Subvolume（ID `5` 與 `@` 命名慣例）及 Nested vs. Flat 佈局對比與 `/etc/fstab`、Btrfs 快照三大特性與 LVM 快照對比、無內建 rollback 指令之兩種還原方式，以及 `/home` 從 `ext4` 遷移至 Btrfs 並拍時間戳快照實戰（`BTRFS.pdf, p.1-18`）。
 
 ## 跨章比較與綜合整理（Comparisons & Syntheses）
 

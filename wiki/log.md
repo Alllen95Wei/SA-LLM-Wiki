@@ -84,3 +84,12 @@ title: "演進日誌"
   - 教學型簡報：`slides/lvm.md`（以 `wiki/lvm.md` 為知識來源製作，含學習地圖、3 個單元過場頁與 4 張 Mermaid 圖表）
 - **更新檔案**：`zensical.toml`（於 `課程主題筆記` 排入 `lvm.md` 第 5 順位）、`wiki/index.md`（狀態更新為 `已匯入` 並加入講義與教學簡報連結）、`wiki/filesystem.md`（更新雙向儲存路線連結）。
 - **範圍與略過說明**：本份來源全數以 Debian 13（`trixws`）實機演練撰寫，無 FreeBSD 專屬內容需略過；投影片未展開項目（如資料 extents 搬移指令、各檔案系統縮擴容支援差異、Thin Pool 空間耗盡監控與自動擴充、Thin Snapshot 專用選項及刪除 LV/VG 指令）已於講義明確標註。
+
+## [2026-11-23] ingest | BTRFS.pdf
+
+- **來源檔案**：`BTRFS.pdf`（p.1–18）
+- **新增頁面**：
+  - 主題講義：`wiki/btrfs.md`（涵蓋五大核心特性、`ext4`/`Btrfs`/`ZFS` 選型、Subvolume（ID `5` 與 `@` 命名慣例）及 Nested vs. Flat 佈局對比與 `/etc/fstab`、Btrfs Snapshot 三大特性與 LVM 快照對比、無內建 rollback 指令之兩種還原方式，以及 `/home` 從 `ext4` 遷移至 Btrfs 並拍時間戳快照的 7 步驟實戰）
+  - 教學型簡報：`slides/btrfs.md`（以 `wiki/btrfs.md` 為知識來源製作，含學習地圖、4 個單元過場頁與 4 張 Mermaid 圖表）
+- **更新檔案**：`zensical.toml`（於 `課程主題筆記` 排入 `btrfs.md` 第 6 順位；依使用者指示暫緩開啟 `跨章比較與綜合整理`）、`wiki/index.md`（狀態更新為 `已匯入` 並加入講義與教學簡報連結）、`wiki/filesystem.md` 與 `wiki/lvm.md`（補上儲存路線雙向連結）。
+- **範圍與略過說明**：本份來源全數以 Debian 13（`trixws`）實機演練撰寫，無 FreeBSD 專屬內容需略過；投影片未展開項目（如軟體 RAID 0/1 建立指令、Self-healing 掃描與修復指令、其他壓縮演算法參數、刪除 subvolume 指令及進階子指令）已於講義明確標註。
