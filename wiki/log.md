@@ -93,3 +93,12 @@ title: "演進日誌"
   - 教學型簡報：`slides/btrfs.md`（以 `wiki/btrfs.md` 為知識來源製作，含學習地圖、4 個單元過場頁與 4 張 Mermaid 圖表）
 - **更新檔案**：`zensical.toml`（於 `課程主題筆記` 排入 `btrfs.md` 第 6 順位；依使用者指示暫緩開啟 `跨章比較與綜合整理`）、`wiki/index.md`（狀態更新為 `已匯入` 並加入講義與教學簡報連結）、`wiki/filesystem.md` 與 `wiki/lvm.md`（補上儲存路線雙向連結）。
 - **範圍與略過說明**：本份來源全數以 Debian 13（`trixws`）實機演練撰寫，無 FreeBSD 專屬內容需略過；投影片未展開項目（如軟體 RAID 0/1 建立指令、Self-healing 掃描與修復指令、其他壓縮演算法參數、刪除 subvolume 指令及進階子指令）已於講義明確標註。
+
+## [2026-11-23] query | 新增儲存管理跨章比較頁（傳統分割區、LVM 與 Btrfs）與對照簡報
+
+- **綜合範圍**：整合 `10_FileSystem.pdf`（p.14–18, 26–29, 42–43）、`LVM.pdf`（p.2–30）與 `BTRFS.pdf`（p.2–17）三份已匯入來源。
+- **規範修訂**：更新 `AGENTS.md` §3.3、§4.5 與 §6.3，維持 `category: topic` 一對一必配簡報原則，並放寬 `category: comparison`／`synthesis` 頁可視需求選配教學簡報。
+- **新增頁面與簡報**：
+  - 跨章比較頁：`wiki/storage-partition-lvm-btrfs.md`（涵蓋三層架構定位與 LVM+Btrfs 疊加混用、空間規劃／Nested vs. Flat／Bottom→Top vs. Top→Bottom 擴縮容順序、LVM vs. Btrfs CoW 快照與還原差異、`ext4`/`xfs`/`btrfs`/`ZFS` 選型與 `/etc/fstab` 對照、情境決策樹與五大陷阱，含 4 張 Mermaid 圖表）
+  - 對照簡報：`slides/storage-partition-lvm-btrfs.md`（以 `wiki/storage-partition-lvm-btrfs.md` 為來源製作之初學者對照簡報，含學習地圖、4 個單元過場頁與 4 張 Mermaid 圖表）
+- **更新檔案**：`zensical.toml`（正式啟用 `跨章比較與綜合整理` 分組）、`wiki/index.md`（加入比較頁與簡報連結）、`wiki/filesystem.md`、`wiki/lvm.md` 與 `wiki/btrfs.md`（補齊跨頁雙向連結）。

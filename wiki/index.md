@@ -35,4 +35,4 @@ title: "首頁與總目錄"
 
 ## 跨章比較與綜合整理（Comparisons & Syntheses）
 
-*尚未建立。後續匯入相關主題或回存高價值跨章整理後將陸續新增。*
+- [儲存管理總對照：傳統分割區、LVM 與 Btrfs](storage-partition-lvm-btrfs.md)（[對照簡報](slides/storage-partition-lvm-btrfs.html){ target="_blank" }）：跨章整合比較傳統分割區、LVM（`PV → VG → LV` / Thin Pool）與 Btrfs（Subvolume / Nested vs. Flat），以及兩者疊加混用、擴縮容反向順序、CoW 快照與還原流程差異、檔案系統選型與 `/etc/fstab` 實戰對照（`10_FileSystem.pdf`、`LVM.pdf`、`BTRFS.pdf`）。

@@ -15,10 +15,9 @@ nav = [
         { "邏輯捲宗管理（LVM）：架構、精簡配置、快照與磁碟擴縮實戰" = "lvm.md" },
         { "Btrfs（B-Tree Filesystem）：Subvolume、佈局、快照與遷移實戰" = "btrfs.md" },
     ] },
-    # 建立跨章比較或綜合整理頁時，取消註解並加入此分組：
-    # { "跨章比較與綜合整理" = [
-    #     { "LVM 與 Btrfs 快照比較" = "lvm-vs-btrfs-snapshot.md" },
-    # ] },
+    { "跨章比較與綜合整理" = [
+        { "儲存管理總對照：傳統分割區、LVM 與 Btrfs" = "storage-partition-lvm-btrfs.md" },
+    ] },
     { "知識庫維運" = [
         { "標籤索引" = "tags.md" },
         { "演進日誌" = "log.md" },

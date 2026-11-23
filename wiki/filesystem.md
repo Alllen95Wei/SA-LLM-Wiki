@@ -423,7 +423,7 @@ flowchart LR
 
 ### 跨主題延伸脈絡
 - **前導主題串聯**：本頁的 `ls -l` / `rm`、`chmod +x` 與 Script 執行需 `rx` 權限、Pipes FIFO 概念，分別與 [Shell：命令列、管線與文字處理](shell.md) 及 [Shell 腳本設計：流程控制、健壯性與 sed / awk](shell-programming.md) 互補。（`10_FileSystem.pdf, p.3, 23-24, 32, 37`）
-- **後續儲存路線延伸**：本頁的分割區掛載與 `/etc/fstab` 已銜接至 [邏輯捲宗管理（LVM）：架構、精簡配置、快照與磁碟擴縮實戰](lvm.md)；第 6 節介紹的 Journaling 與 CoW 低成本快照機制亦已銜接至 [Btrfs（B-Tree Filesystem）：Subvolume、佈局、快照與遷移實戰](btrfs.md)。（`10_FileSystem.pdf, p.14-16, 42-43`）
+- **後續儲存路線延伸**：本頁的分割區掛載與 `/etc/fstab` 已銜接至 [邏輯捲宗管理（LVM）：架構、精簡配置、快照與磁碟擴縮實戰](lvm.md)；第 6 節介紹的 Journaling 與 CoW 低成本快照機制亦已銜接至 [Btrfs（B-Tree Filesystem）：Subvolume、佈局、快照與遷移實戰](btrfs.md)（三者之全貌對比見 [儲存管理總對照：傳統分割區、LVM 與 Btrfs](storage-partition-lvm-btrfs.md)）。（`10_FileSystem.pdf, p.14-16, 42-43`）
 
 ### 已略過之 FreeBSD 專屬內容
 依本知識庫「聚焦 Debian Linux」鐵則，完整略過下列 `10_FileSystem.pdf` 中的 FreeBSD 專屬對照與附錄：

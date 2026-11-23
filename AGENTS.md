@@ -68,7 +68,7 @@ TAICA_LLM-Wiki/
 - **檔名規範**：一律使用**英文小寫 `kebab-case.md`**，避免 GitHub Pages URL 出現中文編碼。
   - 系統固定頁（僅此 3 份，於 `nav` 獨立分區置放，絕不與主題筆記混排）：`index.md`、`tags.md`、`log.md`。
   - 主題講義頁（`wiki/<topic-slug>.md`）與對應簡報（`slides/<topic-slug>.md`）：例如 `shell.md`、`shell-programming.md`、`boot-shutdown.md`、`user-management.md`、`filesystem.md`、`lvm.md`、`btrfs.md`、`linux-networking.md`、`docker-basic.md`。
-  - 跨章比較／綜合頁：`<a-vs-b>.md` 或 `<topic>-synthesis.md`（例：`lvm-vs-btrfs-snapshot.md`）。
+  - 跨章比較／綜合頁：`<a-vs-b>.md` 或 `<topic>-synthesis.md`（例：`storage-partition-lvm-btrfs.md`、`lvm-vs-btrfs-snapshot.md`）；可視需求選配對應教學簡報 `slides/<slug>.md`。
 - **主題式整併原則（Option A）**：
   - **原則上每份核心課程簡報對應 1 篇完整主題講義頁與 1 份 Marp 簡報**，**不另建空泛的 `src-*.md` 總覽殼頁，也不將單一指令或小知識點過度拆碎成獨立檔案**。
   - 利用清晰的 `##` 與 `###` 標題層級組織各單元，確保透過 Zensical 右側目錄（TOC）即可流暢閱讀與跳轉複習。
@@ -138,8 +138,8 @@ updated: YYYY-MM-DD
 - **語法安全**：只要節點文字內含括號 `()`、方括號 `[]`、斜線 `/`、冒號 `:`、`$`、`|` 或空白，**務必使用雙引號包裹節點標籤**，且避免在雙引號標籤內再使用未跳脫的雙引號 `"`，例如：`A["/etc/passwd (7 欄位)"] --> B["getent passwd"]`。
 - **忠實原則**：Mermaid 中的每個節點名稱、步驟順序與關係線，都必須能在來源 PDF 找到對應依據，不得為了美化而虛構投影片沒教的流程節點。
 
-### 4.5 Marp HTML 簡報規範（`slides/<topic-slug>.md`）
-- **定位與知識來源**：以對應的 **`wiki/<topic-slug>.md` 作為直接知識來源**，為**原本不熟悉該主題的初學者**製作**教學型 HTML 簡報**（與考試複習導向的 Wiki 主題頁互補）。一對一對應每篇 `category: topic` 主題講義，並採用統一主題 `themes/sa-wiki.css`。
+### 4.5 Marp HTML 簡報規範（`slides/<slug>.md`）
+- **定位與知識來源**：以對應的 **`wiki/<slug>.md` 作為直接知識來源**，為**原本不熟悉該主題的初學者**製作**教學型 HTML 簡報**（與考試複習導向的 Wiki 主題頁互補）。每篇 **`category: topic` 主題講義必配** 1 份對應簡報；**`category: comparison` / `synthesis` 頁亦可視需求選配簡報**，全站皆採用統一主題 `themes/sa-wiki.css`。
 - **Frontmatter 標準設定**：
   ```yaml
   ---
@@ -157,7 +157,7 @@ updated: YYYY-MM-DD
   - **嚴格忠於來源**：雖為教學口吻與循序展開，所有技術事實、指令、旗標、範例與 Mermaid 節點仍須**嚴格源自對應 `wiki/<topic-slug>.md`（並標註 PDF 頁碼）**，不自行補充外部知識或 FreeBSD 專屬配方。
   - **視覺輔助元件**：使用 `<blockquote class="trap">...</blockquote>` 提醒初學者最常踩的盲點，使用 `<div class="cols">` 輔助雙欄對照（例如觀念說明配指令範例）。
 - **Mermaid 渲染機制**：在投影片中以 `<pre class="mermaid">...</pre>` 嵌入圖表，並於簡報檔最底部附上 `mermaid@11` ESM 延遲渲染腳本（設定 `startOnLoad: false`，僅對目前可視投影片內未處理的 `.mermaid:not([data-processed="true"])` 節點執行 `mermaid.run`），確保 Bespoke 隱藏投影片不會出現尺寸異常。
-- **雙向連結**：`wiki/<topic-slug>.md` 頁首提示框與 `wiki/index.md` 皆需提供 `[開啟教學型 HTML 簡報（新分頁）](slides/<topic-slug>.html){ target="_blank" }` 連結。
+- **雙向連結**：對應的 `wiki/<slug>.md` 頁首提示框與 `wiki/index.md` 皆需提供 `[開啟教學型 HTML 簡報（新分頁）](slides/<slug>.html){ target="_blank" }` 連結（比較／綜合頁亦同）。
 
 ---
 
@@ -223,7 +223,7 @@ updated: YYYY-MM-DD
 
 ### 6.3 Lint（知識庫健康檢查）
 當使用者要求執行 Lint，或累計匯入數份來源後建議執行檢查時，應全面檢查以下項目：
-1. **多方同步檢查**：檢查 `wiki/*.md` 檔案集合是否與 `zensical.toml` 的 `nav` 清單及 `wiki/index.md` 目錄完全同步；並檢查所有 `category: topic` 主題頁是否皆有對應的 `slides/<topic-slug>.md`。
+1. **多方同步檢查**：檢查 `wiki/*.md` 檔案集合是否與 `zensical.toml` 的 `nav` 清單及 `wiki/index.md` 目錄完全同步；並檢查所有 `category: topic` 主題頁是否皆有對應的 `slides/<topic-slug>.md`，且任何既有的 `slides/<slug>.md`（含比較／綜合頁簡報）皆對應有效的 `wiki/<slug>.md` 與雙向連結。
 2. **連結完整性**：是否存在斷連、錯誤相對路徑、失效簡報連結或誤用 `[[Wikilink]]`。
 3. **跨頁一致性**：不同主題頁彙整出的觀念定義、指令選項、預設值或路徑之間是否有矛盾未標註。
 4. **章節結構與跨章整理檢查**：是否存在宜進一步整併跨章對比（例如跨章出現的重要對照概念）的主題。

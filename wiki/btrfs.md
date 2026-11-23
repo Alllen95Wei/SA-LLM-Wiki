@@ -227,7 +227,7 @@ flowchart LR
 
 ### 跨主題延伸脈絡
 - **前導檔案系統原理**：本頁的獨立 inode 命名空間、`/etc/fstab` 開機掛載機制與 CoW（Copy-on-Write）概念，延續並深化自 [檔案系統：架構、Inode、連結與權限管理](filesystem.md)。（`BTRFS.pdf, p.2, 4, 7`；`10_FileSystem.pdf, p.16, 26-29, 43`）
-- **與 LVM 的實戰與比較關聯**：本頁的遷移範例建於 [邏輯捲宗管理（LVM）：架構、精簡配置、快照與磁碟擴縮實戰](lvm.md) 的 LV（`home-vg/home-vol`）之上，且 `p.9` 直接對比了 LVM 與 Btrfs 兩者的快照機制（後續將再依需求進一步整理跨章比較頁）。（`BTRFS.pdf, p.9, 13-16`；`LVM.pdf, p.10-11, 18, 29`）
+- **與 LVM 的實戰與比較關聯**：本頁的遷移範例建於 [邏輯捲宗管理（LVM）：架構、精簡配置、快照與磁碟擴縮實戰](lvm.md) 的 LV（`home-vg/home-vol`）之上，且 `p.9` 直接對比了 LVM 與 Btrfs 兩者的快照機制；完整三章對照與選型決策整理見 [儲存管理總對照：傳統分割區、LVM 與 Btrfs](storage-partition-lvm-btrfs.md)。（`BTRFS.pdf, p.9, 13-16`；`LVM.pdf, p.10-11, 18, 29`）
 
 ### FreeBSD 排除說明
 - 經逐頁檢視 `BTRFS.pdf`（p.1–18），全份投影片完全以 Debian 13（`trixws`）與 Linux Btrfs 工具鏈撰寫，**無 FreeBSD 專屬內容需略過**。
