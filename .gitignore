@@ -1,0 +1,13 @@
+# 課程原始簡報 PDF（嚴格唯讀，不納入公開版控）
+raw/
+
+# Zensical 靜態網站建置輸出與快取
+site/
+.cache/
+
+# Python / OS 暫存檔
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
