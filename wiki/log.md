@@ -56,3 +56,13 @@ title: "演進日誌"
   - 教學型簡報：`slides/docker-basic.md`（以 `wiki/docker-basic.md` 為知識來源製作，含學習地圖、3 個單元過場頁與 4 張 Mermaid 圖表）
 - **更新檔案**：`zensical.toml`（於 `課程主題筆記` 排入 `docker-basic.md` 第 3 順位）、`wiki/index.md`（狀態更新為 `已匯入` 並加入講義與教學簡報連結）、`wiki/shell.md`（於跨主題關聯處補上前往 `docker-basic.md` 之雙向連結）。
 - **範圍與略過說明**：本份來源全數聚焦 Linux 與 Docker 操作，無 FreeBSD 專屬內容需略過；投影片未展開項目（如除 Linux namespaces 外的資源配額機制、`OCI`/`shim`/`crun`/`Singularity` 細節、`apt` 安裝、`docker` 群組權限風險與重新登入生效細節、`Dockerfile`/`docker build` 語法及其他未提及之子指令）已於講義明確標註。
+
+## [2026-11-23] lint | 前三份主題全面健康檢查與修正
+
+- **檢查範圍**：全部已匯入主題（`wiki/shell.md`、`wiki/shell-programming.md`、`wiki/docker-basic.md`）、對應教學型簡報（`slides/*.md`）、`zensical.toml`、`wiki/index.md`、`wiki/tags.md`、`.gitignore` 與編譯輸出 `site/`。
+- **通過項目**：`zensical.toml` `nav` / `wiki/*.md` / `wiki/index.md` 三方同步、所有 `category: topic` 與 `slides/*.md` 一對一同步、零雙括號維基連結（Wikilink）、零斷連、無表格反斜線管線字元誤寫、YAML／Marp frontmatter 與標籤合規、Mermaid 雙引號安全、無殘留 FreeBSD 操作配方。
+- **完成修復**：
+  - 修正 `wiki/docker-basic.md` 交叉引用 `03_Shell.pdf` 的頁碼（補上安全下載原則 `p.12` 與執行流程 `p.5`）。
+  - 移除 `wiki/shell-programming.md` 「投影片未展開」提示框中夾帶之外部範例代碼與未載術語（涵蓋第 3、6、7 節提示框修訂），確保嚴格忠於來源。
+  - 於 `wiki/shell.md` 三處「投影片未展開」提示框補上前往 `wiki/shell-programming.md` 的跨頁連結。
+  - 修正 `slides/shell-programming.md` 與 `slides/docker-basic.md` 中 `<pre class="mermaid">` 內原始 `<` 字元，確保 HTML 輸出零歧義。

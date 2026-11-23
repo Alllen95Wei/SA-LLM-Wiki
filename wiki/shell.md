@@ -294,7 +294,7 @@ done
     2. **不可把通過 `ShellCheck` 當成取代實際測試**：應將警告視為理解 Shell 語意的提示，仍需進行實際測試。（`03_Shell.pdf, p.44`）
 
 !!! note "投影片未展開"
-    - 投影片提及 `${var}` 寫法，未展開大括號展開變體；亦未展開 `ShellCheck` 安裝方式與 `SC2086` 以外的其他規則編號。（`03_Shell.pdf, p.44-45`）
+    - 投影片提及 `${var}` 寫法，未展開大括號展開變體；亦未展開 `ShellCheck` 安裝方式與 `SC2086` 以外的其他規則編號（`${var}` 參數展開變體與 `ShellCheck` 流程已於後續主題 [Shell 腳本設計](shell-programming.md) 展開）。（`03_Shell.pdf, p.44-45`）
 
 ---
 
@@ -402,7 +402,7 @@ alias ..="cd .."
     3. **`!` 歷史展開風險**：在具破壞性或特權操作時，`!` 展開結果可能出乎意料，執行前務必檢查實際命令；且腳本中不可依賴互動式歷史快捷鍵，應寫明確的指令與變數。（`03_Shell.pdf, p.47-48`）
 
 !!! note "投影片未展開"
-    - 投影片未展開 `Ctrl-Z` 與 `kill` 背後對應的具體 POSIX signal 名稱或編號，亦未詳述脫離終端機的進階工具。（`03_Shell.pdf, p.21, 24`）
+    - 投影片未展開 `Ctrl-Z` 與 `kill` 背後對應的具體 POSIX signal 名稱或編號，亦未詳述脫離終端機的進階工具（常見 POSIX Signals 與 `trap` 處理已於 [Shell 腳本設計](shell-programming.md) 展開）。（`03_Shell.pdf, p.21, 24`）
 
 ---
 
@@ -620,7 +620,7 @@ awk '{print $1}' access.log \
     4. **未用 `-print0` / `-0`**：一般 `xargs` 會把含空白／換行的檔名拆斷。（`03_Shell.pdf, p.40`）
 
 !!! note "投影片未展開"
-    - 投影片未展開 `grep -E` 完整正規表達式與 `journalctl` 操作參數、`cut` 字元範圍參數、進階 `awk` 程式語法，以及 `sed` 除單次替換 `s/old/new/` 外的其他選項或修飾符。（`03_Shell.pdf, p.34-35, 37`）
+    - 投影片未展開 `grep -E` 完整正規表達式與 `journalctl` 操作參數、`cut` 字元範圍參數、進階 `awk` 程式語法，以及 `sed` 除單次替換 `s/old/new/` 外的其他選項或修飾符（ERE 正規表達式、`sed` 位址旗標與 `awk` 進階語法已於 [Shell 腳本設計](shell-programming.md) 展開）。（`03_Shell.pdf, p.34-35, 37`）
 
 ---
 

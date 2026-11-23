@@ -175,7 +175,7 @@ docker -v
 ```
 （來源：`Docker_Basic.pdf, p.12`）
 
-- **跨單元操作慣例銜接**：此處的 `curl -o get-docker.sh` 再以 `sudo sh ./get-docker.sh` 執行，即呼應了 [Shell：命令列、管線與文字處理](shell.md) 所介紹「先下載腳本再檢查／執行，而非盲目將未知遠端輸出透過管線送進 shell」的安全觀念；`$USER` 則是 Shell 中的環境變數。（`Docker_Basic.pdf, p.11-12`；`03_Shell.pdf, p.14-15`）
+- **跨單元操作慣例銜接**：此處的 `curl -o get-docker.sh` 再以 `sudo sh ./get-docker.sh` 執行，即呼應了 [Shell：命令列、管線與文字處理](shell.md) 所介紹「先下載腳本再檢查／執行，而非盲目將未知遠端輸出透過管線送進 shell」的安全觀念；`$USER` 則是 Shell 中的環境變數。（`Docker_Basic.pdf, p.11-12`；`03_Shell.pdf, p.12, 15`）
 
 !!! tip "本單元考點"
     - **`usermod -aG docker $USER`**：把目前使用者 `$USER` **附加（append）**至 `docker` 次要群組（`-aG`），使一般使用者能免 `sudo` 執行 Docker 指令；安裝後可用 `docker -v` 確認版本。（`Docker_Basic.pdf, p.12`）
@@ -331,7 +331,7 @@ flowchart LR
 ## 跨主題關聯與範圍備註
 
 ### 跨主題延伸脈絡
-- **Shell 操作與安全下載慣例**：官方安裝腳本採用 `curl -fsSL ... -o get-docker.sh` 搭配 `sudo sh ./get-docker.sh`、環境變數 `$USER` 以及 `docker exec -it ... bash/sh`，可搭配複習 [Shell：命令列、管線與文字處理](shell.md) 中的終端機／Shell 概念、變數展開與程式執行流程。（`Docker_Basic.pdf, p.11-12, 20`；`03_Shell.pdf, p.4, 15, 22`）
+- **Shell 操作與安全下載慣例**：官方安裝腳本採用 `curl -fsSL ... -o get-docker.sh` 搭配 `sudo sh ./get-docker.sh`、環境變數 `$USER` 以及 `docker exec -it ... bash/sh`，可搭配複習 [Shell：命令列、管線與文字處理](shell.md) 中的終端機／Shell 概念、變數展開與程式執行流程。（`Docker_Basic.pdf, p.11-12, 20`；`03_Shell.pdf, p.4-5, 12, 15`）
 - **後續主題預告**：本主題提及的 `systemctl enable / start` 服務管理、`groupadd` / `usermod -aG` 使用者與群組授權，以及容器網路堆疊／`-p` 連接埠轉發概念，將於後續對應單元（開關機與服務、帳號權限管理、Linux 網路指令）匯入後建立跨頁連結。（`Docker_Basic.pdf, p.4, 11-12, 18`）
 
 ### FreeBSD 排除說明

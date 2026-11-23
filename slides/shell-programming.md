@@ -305,7 +305,7 @@ printf 'program output\n' > "$tmpfile"
 
 <pre class="mermaid">
 flowchart TD
-    P["父 Shell (Parent Shell)"] --> F["Same shell (例如函式呼叫 / 重導向迴圈 < file)"]
+    P["父 Shell (Parent Shell)"] --> F["Same shell (例如函式呼叫 / 重導向迴圈 &lt; file)"]
     P --> SUB["Subshell / child process (例如管線 | 右側)"]
     F --> F1["直接共用並修改變數 -> 結束後變更留存"]
     SUB --> S1["僅接收環境變數副本 -> 內部修改不會回傳給父 Shell"]

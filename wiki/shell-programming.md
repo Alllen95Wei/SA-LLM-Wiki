@@ -292,7 +292,7 @@ printf 'program output\n' > "$tmpfile"
     2. **`cat file | while ...` 變數修改消失**：管線右側會在 Subshell 中執行，內部對變數的遞增在迴圈結束後完全不會影響外層變數；需要保留變數結果時應改用 `< input.txt` 重導向輸入。（`03_Shell_Programming.pdf, p.28, 33`）
 
 !!! note "投影片未展開"
-    - 投影片提醒 `for f in *.log` 應「視需要處理沒有任何檔案符合（no-match）的情況」，未展開具體處理寫法（例如檢查 `[ -e "$f" ] || continue`）。（`03_Shell_Programming.pdf, p.27`）
+    - 投影片提醒 `for f in *.log` 應「視需要處理沒有任何檔案符合（no-match）的情況」，未展開具體處理寫法。（`03_Shell_Programming.pdf, p.27`）
 
 ---
 
@@ -474,7 +474,7 @@ flowchart LR
     2. **教學與除錯必聲明方言**：隨時明確指出使用的工具與正規方言（`grep`/`sed` 預設 BRE，`awk` 內建 ERE）。（`03_Shell_Programming.pdf, p.47`）
 
 !!! note "投影片未展開"
-    - 投影片僅列 ERE 運算子表與工具方言表，未逐一展開 BRE 中哪些符號（如 `+`、`?`、`{m,n}`）需加反斜線跳脫。（`03_Shell_Programming.pdf, p.45, 47`）
+    - 投影片僅列 ERE 運算子表與工具方言表，未逐一展開 BRE 各符號的跳脫規則清單。（`03_Shell_Programming.pdf, p.45, 47`）
 
 ---
 
@@ -552,7 +552,7 @@ awk -F: '$1 == "root" {
 - 當「挑選條件」與「欄位邏輯」屬於同一件事時，**用一個 `awk` 通常比串一長串 `grep + cut` 更清晰**。（`03_Shell_Programming.pdf, p.57`）
 
 !!! note "投影片未展開"
-    - 投影片提及 `sed` 可顯式使用原地編輯（in-place editing）與將複雜 `sed` 程式放進獨立檔案，但未列出具體旗標寫法，亦未展開 `sed` hold space 等進階緩衝區。（`03_Shell_Programming.pdf, p.51, 53`）
+    - 投影片提及 `sed` 可顯式使用原地編輯（in-place editing）與將複雜 `sed` 程式放進獨立檔案，但未列出具體旗標寫法，亦未展開 `sed` 其他進階緩衝區操作。（`03_Shell_Programming.pdf, p.51, 53`）
 
 ---
 

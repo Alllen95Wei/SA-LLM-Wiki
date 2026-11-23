@@ -251,7 +251,7 @@ flowchart LR
     B --> DM
     PL --> DM
     RN --> DM
-    DM <-->|"下載映像檔"| RI
+    DM &lt;--&gt;|"下載映像檔"| RI
 </pre>
 
 - `Client` 下指令給 `DOCKER_HOST` 上的 `Docker daemon`，由它向遠端 `Registry` 拉取 `Images` 並啟動管理 `Containers`（`p.14`）
