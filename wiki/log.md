@@ -38,3 +38,12 @@ title: "演進日誌"
 
 - **簡報定位調整**：依作業需求明確區分雙層產物——`wiki/` 持續聚焦期中／期末考複習講義，而 `slides/` 則以對應 Wiki 頁面為知識來源，改為製作適合初學者從零理解概念的**教學型 HTML 簡報**（同步更新 `AGENTS.md`、`wiki/shell.md`、`wiki/index.md`）。
 - **樣式與內容重構**：於 `themes/sa-wiki.css` 新增 `.divider` 單元過場樣式並調整 Mermaid 高度上限；依 `wiki/shell.md`（`03_Shell.pdf`）重寫 `slides/shell.md`（擴展為 27 張教學投影片，包含學習地圖、6 個單元過場頁、循序漸進的白話說明與一頁一重點設計）。
+
+## [2026-11-23] ingest | 03_Shell_Programming.pdf
+
+- **來源檔案**：`03_Shell_Programming.pdf`（p.1–62）
+- **新增頁面**：
+  - 主題講義：`wiki/shell-programming.md`（涵蓋 POSIX `#!/bin/sh` 與 Shebang、參數展開、`"$@"` vs `"$*"`、條件測試與流程控制、管線 Subshell 陷阱、函式與 `getopts`、錯誤處理／`trap`／Signals／`ShellCheck`、BRE/ERE 正規表達式、`sed`/`awk` 及主機健康檢查實戰重構）
+  - 教學型簡報：`slides/shell-programming.md`（以 `wiki/shell-programming.md` 為知識來源製作，含學習地圖、7 個單元過場頁與 5 張 Mermaid 圖表）
+- **更新檔案**：`zensical.toml`（於 `課程主題筆記` 加入 `shell-programming.md`）、`wiki/index.md`（狀態更新為 `已匯入` 並加入講義與教學簡報連結）、`wiki/shell.md`（於跨主題關聯處補上前往 `shell-programming.md` 之雙向連結）。
+- **範圍與略過說明**：依聚焦 Debian Linux 與 POSIX `sh` 原則，略過 FreeBSD/`tcsh` 專屬歷史與手冊參照（p.6、47、62）；投影片未展開項目（如 `/bin/sh` 底層套件實作、no-match 具體代碼、非 POSIX `local` 語法、其他 `set` 旗標、BRE 跳脫規則及 `sed` 原地編輯／外部腳本旗標）已於講義明確標註。

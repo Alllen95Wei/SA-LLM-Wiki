@@ -15,7 +15,7 @@ title: "首頁與總目錄"
 | 來源檔案 | 狀態 | 主題講義頁面 | 教學簡報 | 備註 |
 | :--- | :--- | :--- | :--- | :--- |
 | `03_Shell.pdf` | 已匯入 | [Shell：命令列、管線與文字處理](shell.md) | [開啟簡報](slides/shell.html){ target="_blank" } | 主題式完整講義（略過 FreeBSD/tcsh） |
-| `03_Shell_Programming.pdf` | 待匯入 | — | — | — |
+| `03_Shell_Programming.pdf` | 已匯入 | [Shell 腳本設計：流程控制、健壯性與 sed / awk](shell-programming.md) | [開啟簡報](slides/shell-programming.html){ target="_blank" } | 主題式完整講義（POSIX sh 與 Debian 13） |
 | `Docker_Basic.pdf` | 待匯入 | — | — | — |
 | `Linux_Networking_Commands.pdf` | 待匯入 | — | — | — |
 | `06_Boot_ShutDown.pdf` | 待匯入 | — | — | — |
@@ -27,6 +27,7 @@ title: "首頁與總目錄"
 ## 課程主題筆記（Topics）
 
 - [Shell：命令列、管線與文字處理](shell.md)（[教學簡報](slides/shell.html){ target="_blank" }）：完整涵蓋 Terminal/Shell/Kernel 與五階段執行、Bash 啟動檔、變數／引號／展開與控制運算子、Built-in 與工作控制、FD `0/1/2` 重導向與管線、UNIX 八大文字處理工具鏈、整合實戰與考前速查表（`03_Shell.pdf, p.1-49`）。
+- [Shell 腳本設計：流程控制、健壯性與 sed / awk](shell-programming.md)（[教學簡報](slides/shell-programming.html){ target="_blank" }）：涵蓋 POSIX `#!/bin/sh` 與 Shebang、參數預設值與字串展開、`"$@"` vs `"$*"`、`test`/`[ ... ]` 與 `while IFS= read -r` 管線 Subshell 陷阱、`getopts`、`trap`/Signals、`ShellCheck`、BRE/ERE 正規表達式、`sed`/`awk` 串流處理及健康檢查重構實例（`03_Shell_Programming.pdf, p.1-62`）。
 
 ## 跨章比較與綜合整理（Comparisons & Syntheses）
 
