@@ -2,7 +2,7 @@
 site_name = "System Administration Wiki (Debian 13)"
 site_description = "系統管理課程（Debian 13）考試複習導向 LLM Wiki"
 # 部署至 GitHub Pages 前，請取消下方註解並填入實際網址（設定後可同步啟用下方的 "navigation.instant"）
-# site_url = "https://<username>.github.io/<repo>/"
+site_url = "https://alllen95wei.github.io/SA-LLM-Wiki/"
 docs_dir = "wiki"
 site_dir = "site"
 nav = [
@@ -28,7 +28,7 @@ nav = [
 variant = "modern"
 language = "zh-TW"
 features = [
-    # "navigation.instant",
+    "navigation.instant",
     "navigation.sections",
     "navigation.top",
     "navigation.tracking",
