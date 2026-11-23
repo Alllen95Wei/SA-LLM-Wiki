@@ -33,3 +33,8 @@ title: "演進日誌"
 - **簡報系統建立**：新增共用 Marp 主題 `themes/sa-wiki.css`（與 Zensical 一致之 Indigo/Blue 配色、支援 `mermaid@11` 延遲渲染與雙欄／陷阱樣式），並於 `.gitignore` 排除編譯暫存目錄 `wiki/slides/`。
 - **首份簡報產出**：依 `03_Shell.pdf`（p.1–49）建立 `slides/shell.md`（共 16 張考前快刷投影片，包含 6 張 Mermaid 圖表、雙欄比較與考前速查表），並於 `wiki/shell.md` 與 `wiki/index.md` 建立雙向連結。
 - **部署與規範同步**：更新 `.github/workflows/docs.yml`（整合 Node.js / `@marp-team/marp-cli` 編譯步驟至 Zensical 建置之前）及 `AGENTS.md`（納入 Marp 簡報規範與雙重編譯驗證流程）。
+
+## [2026-11-23] refactor | 調整簡報定位為教學型 HTML 簡報並重寫 Shell 簡報
+
+- **簡報定位調整**：依作業需求明確區分雙層產物——`wiki/` 持續聚焦期中／期末考複習講義，而 `slides/` 則以對應 Wiki 頁面為知識來源，改為製作適合初學者從零理解概念的**教學型 HTML 簡報**（同步更新 `AGENTS.md`、`wiki/shell.md`、`wiki/index.md`）。
+- **樣式與內容重構**：於 `themes/sa-wiki.css` 新增 `.divider` 單元過場樣式並調整 Mermaid 高度上限；依 `wiki/shell.md`（`03_Shell.pdf`）重寫 `slides/shell.md`（擴展為 27 張教學投影片，包含學習地圖、6 個單元過場頁、循序漸進的白話說明與一頁一重點設計）。

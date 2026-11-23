@@ -39,6 +39,31 @@ section.lead h1 {
   margin-bottom: 0.35em;
 }
 
+section.divider {
+  justify-content: center;
+  background: linear-gradient(135deg, var(--sa-indigo-dark) 0%, var(--sa-indigo) 65%, var(--sa-blue) 100%);
+  color: #ffffff;
+}
+
+section.divider h1,
+section.divider h2 {
+  color: #ffffff;
+  border-bottom: none;
+  font-size: 1.7em;
+  margin-bottom: 0.3em;
+}
+
+section.divider p {
+  color: #e0e7ff;
+  font-size: 1.05em;
+}
+
+section.divider header,
+section.divider footer,
+section.divider::after {
+  color: rgba(255, 255, 255, 0.72);
+}
+
 h1, h2, h3 {
   color: var(--sa-indigo-dark);
   font-weight: 700;
@@ -191,7 +216,7 @@ pre.mermaid {
 }
 
 pre.mermaid svg {
-  max-height: 340px;
+  max-height: 280px;
   max-width: 100%;
   height: auto;
 }

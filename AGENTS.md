@@ -6,11 +6,11 @@
 
 ## 1. 專案定位與三層架構
 
-本專案依據 **LLM Wiki** 模式建立，目標是為使用者整理**系統管理課程（System Administration）**內容，產出以**期中／期末考複習**為核心導向的持久化知識庫與考前簡報，並透過 **Marp CLI + Zensical** 編譯為一致模板與主題的靜態 HTML，部署於 **GitHub Pages**。
+本專案依據 **LLM Wiki** 模式建立，目標是為使用者整理**系統管理課程（System Administration）**內容，產出以**期中／期末考複習**為核心導向的持久化知識庫，並以該知識庫為來源產出適合初學者自學的**教學型 HTML 簡報**，最終透過 **Marp CLI + Zensical** 編譯為一致模板與主題的靜態 HTML，部署於 **GitHub Pages**。
 
 ### 三層分工
 1. **Raw Sources（`raw/`）**：使用者放置課程簡報 PDF 的原始資料層。**嚴格唯讀，由使用者自行管理，並透過 `.gitignore` 排除於 Git 版控之外。**
-2. **The Wiki & Slides（`wiki/` + `slides/`）**：由 LLM 全權維護的**主題式（Topic-Based）** Markdown 知識庫與對應的 **Marp 複習簡報**。每個核心課程主題對應 1 篇結構連貫的講義頁（`wiki/<topic-slug>.md`）與 1 份考前快刷簡報（`slides/<topic-slug>.md`，編譯輸出至被 Git 排除的 `wiki/slides/` 後由 Zensical 一併發佈）；LLM 負責撰寫、交叉引用、繪製圖表與維護一致性。
+2. **The Wiki & Slides（`wiki/` + `slides/`）**：由 LLM 全權維護的**主題式（Topic-Based）** Markdown 知識庫與對應的**教學型 Marp 簡報**。每個核心課程主題對應 1 篇結構連貫、考試導向的講義頁（`wiki/<topic-slug>.md`），並以該 Wiki 頁面作為知識來源製作 1 份讓不熟悉該主題者也能理解基本概念的教學簡報（`slides/<topic-slug>.md`，編譯輸出至被 Git 排除的 `wiki/slides/` 後由 Zensical 一併發佈）；LLM 負責撰寫、交叉引用、繪製圖表與維護一致性。
 3. **The Schema（`AGENTS.md` + `zensical.toml` + `themes/sa-wiki.css`）**：定義知識庫規範、頁面與簡報模板、側邊欄分組導覽（`nav`）與網站／簡報建置設定。
 
 ---
@@ -21,7 +21,7 @@
    - 絕對不可建立、修改、覆寫、移動、重新命名或刪除 `raw/` 內的任何檔案。
    - 絕對不可使用 `git add -f raw/` 或任何方式將 `raw/` 納入 Git 追蹤。
 2. **嚴格忠於來源（Zero External Supplementation）**
-   - 所有技術事實、定義、指令、旗標（flags）、設定檔語法、預設路徑、限制條件與 Mermaid 節點，**必須嚴格源自 `raw/` 內的課程 PDF**（包含簡報 `slides/*.md` 亦同）。
+   - 所有技術事實、定義、指令、旗標（flags）、設定檔語法、預設路徑、限制條件與 Mermaid 節點，**必須嚴格源自 `raw/` 內的課程 PDF**（簡報 `slides/*.md` 則以對應之 `wiki/*.md` 為知識來源，同樣嚴禁引入外部未載知識）。
    - 每個核心主張、範例或指令區塊皆須明確標註來源檔名與頁碼（格式：`(07_User_Management.pdf, p.18)`）。
    - 若投影片僅帶過名詞、未展開原理或參數細節，**嚴禁憑自身預訓練知識自行補完**；應以 `!!! note "投影片未展開"` 或明確文字標註「投影片未詳述」。
 3. **聚焦於 Debian Linux（Debian 13 / trixie）**
@@ -47,7 +47,7 @@ TAICA_LLM-Wiki/
 ├── raw/                             # （嚴格唯讀、Git 排除）課程簡報 PDF
 ├── themes/
 │   └── sa-wiki.css                  # Marp 全站統一簡報主題樣式
-├── slides/                          # Marp Markdown 考前複習簡報（1-to-1 對應主題頁）
+├── slides/                          # 教學型 Marp Markdown 簡報（以對應 Wiki 頁為來源）
 │   └── <topic-slug>.md
 └── wiki/                            # （Zensical docs_dir）扁平主題式知識庫
     ├── index.md                     # 總目錄、來源追蹤表與網站首頁
@@ -121,8 +121,8 @@ updated: YYYY-MM-DD
 
 > 一句話考試定位摘要：總結本主題在系統管理中的核心任務與必考脈絡。（`檔名.pdf, p.1-2`）
 
-!!! info "考前簡報版"
-    想用鍵盤翻頁快速複習本單元重點與 Mermaid 圖表，請點此：[開啟 HTML 簡報版（新分頁）](slides/<topic-slug>.html){ target="_blank" }。
+!!! info "教學型 HTML 簡報"
+    想從零開始透過翻頁簡報循序理解本單元基本概念，請點此：[開啟教學型 HTML 簡報（新分頁）](slides/<topic-slug>.html){ target="_blank" }。
 
 ## 學習目標與課程原則
 ...
@@ -139,7 +139,7 @@ updated: YYYY-MM-DD
 - **忠實原則**：Mermaid 中的每個節點名稱、步驟順序與關係線，都必須能在來源 PDF 找到對應依據，不得為了美化而虛構投影片沒教的流程節點。
 
 ### 4.5 Marp HTML 簡報規範（`slides/<topic-slug>.md`）
-- **一對一對應**：每篇 `wiki/<topic-slug>.md` 主題講義皆對應建立一份 `slides/<topic-slug>.md`（採用統一主題 `themes/sa-wiki.css`）。
+- **定位與知識來源**：以對應的 **`wiki/<topic-slug>.md` 作為直接知識來源**，為**原本不熟悉該主題的初學者**製作**教學型 HTML 簡報**（與考試複習導向的 Wiki 主題頁互補）。一對一對應每篇 `category: topic` 主題講義，並採用統一主題 `themes/sa-wiki.css`。
 - **Frontmatter 標準設定**：
   ```yaml
   ---
@@ -147,17 +147,17 @@ updated: YYYY-MM-DD
   theme: sa-wiki
   paginate: true
   size: 16:9
-  header: "System Administration (Debian 13) — 考前複習簡報"
-  footer: "來源：<PDF檔名> ｜ System Administration LLM Wiki"
+  header: "System Administration (Debian 13) — 教學型簡報"
+  footer: "知識來源：wiki/<topic-slug>.md（<PDF檔名>） ｜ System Administration LLM Wiki"
   ---
   ```
-- **內容編排原則（考前快刷閃卡風格）**：
-  - 每張投影片以 `---` 分隔，聚焦 **1 個核心考點／對照表／流程圖／常見陷阱**，避免單頁文字塞滿溢位。
-  - 所有內容同樣**嚴格忠於 `raw/` PDF 且標註 `(檔名.pdf, p.X)`**，不補充外部知識、不收錄 FreeBSD 專屬配方。
-  - 首頁封面（`<!-- _class: lead -->`）附上返回完整文字講義的連結：`[返回完整講義](../<topic-slug>/)`。
-  - 使用 `<blockquote class="trap">...</blockquote>` 突顯常見陷阱與高風險提醒，使用 `<div class="cols">` 輔助雙欄對照排版。
+- **內容編排原則（初學者教學導向）**：
+  - **學習地圖與章節過場**：首頁封面（`<!-- _class: lead -->`）點明學習目標與 `[閱讀完整 Wiki 講義](../<topic-slug>/)`；第 2 頁提供「學習地圖」（用初學者問題串起全單元）；各主要學習階段以 `<!-- _class: divider -->` 章節過場頁區隔。
+  - **由淺入深、一頁一觀念**：先說明「為什麼需要／解決什麼問題」，再帶出語法與實例，避免把多個工具塞進同一張高密度投影片而造成閱讀壓力或版面溢位。
+  - **嚴格忠於來源**：雖為教學口吻與循序展開，所有技術事實、指令、旗標、範例與 Mermaid 節點仍須**嚴格源自對應 `wiki/<topic-slug>.md`（並標註 PDF 頁碼）**，不自行補充外部知識或 FreeBSD 專屬配方。
+  - **視覺輔助元件**：使用 `<blockquote class="trap">...</blockquote>` 提醒初學者最常踩的盲點，使用 `<div class="cols">` 輔助雙欄對照（例如觀念說明配指令範例）。
 - **Mermaid 渲染機制**：在投影片中以 `<pre class="mermaid">...</pre>` 嵌入圖表，並於簡報檔最底部附上 `mermaid@11` ESM 延遲渲染腳本（設定 `startOnLoad: false`，僅對目前可視投影片內未處理的 `.mermaid:not([data-processed="true"])` 節點執行 `mermaid.run`），確保 Bespoke 隱藏投影片不會出現尺寸異常。
-- **雙向連結**：`wiki/<topic-slug>.md` 頁首提示框與 `wiki/index.md` 皆需提供 `[開啟 HTML 簡報版（新分頁）](slides/<topic-slug>.html){ target="_blank" }` 連結。
+- **雙向連結**：`wiki/<topic-slug>.md` 頁首提示框與 `wiki/index.md` 皆需提供 `[開啟教學型 HTML 簡報（新分頁）](slides/<topic-slug>.html){ target="_blank" }` 連結。
 
 ---
 
@@ -198,13 +198,13 @@ updated: YYYY-MM-DD
 4. **提出 Ingest 提案並暫停等待確認（關鍵步驟）**：
    在寫入任何 `wiki/` 或 `slides/` 檔案之前，先向使用者輸出清晰的提案報告：
    - **預計建立／更新之主題頁與簡報頁**：列出目標 `wiki/<topic-slug>.md`、`slides/<topic-slug>.md`、繁中標題與在 `zensical.toml` `nav` 中的擺放順序。
-   - **本份簡報核心考點與章節／簡報分頁大綱**：條列 `##` / `###` 單元結構、主要考點與簡報預估張數。
+   - **本份簡報核心考點與章節／教學簡報大綱**：條列 `##` / `###` 單元結構、主要考點，以及以該 Wiki 為來源規劃之教學簡報學習路線、章節過場與預估張數。
    - **Mermaid 圖表規劃**：說明預計在哪些章節與投影片插入何種流程／架構圖。
    - **跨主題連結或比較頁建議**：說明是否需更新既有主題頁的交叉連結，或建議獨立建立跨章比較頁（僅於真正跨章時提案）。
    - **範圍邊界說明**：列出略過了哪些 FreeBSD 頁面、哪些細節因投影片未詳述將標記為「投影片未展開」。
    等待使用者確認或微調大綱後，才可進入寫入階段。
 5. **寫入與同步維護**：
-   - 建立或更新目標主題頁 `wiki/<topic-slug>.md`（含頁首 `HTML 簡報` 連結）與對應 Marp 簡報 `slides/<topic-slug>.md`（含返回講義連結）。
+   - 建立或更新目標主題頁 `wiki/<topic-slug>.md`（含頁首 `教學型 HTML 簡報` 連結），再以該主題頁為知識來源製作對應的教學型 Marp 簡報 `slides/<topic-slug>.md`（含學習地圖、單元過場與返回完整講義連結）。
    - 同步更新 **`zensical.toml` 的 `nav`**、**`wiki/index.md`**（來源追蹤表改為 `已匯入`、補上主題頁與 HTML 簡報連結）與 **`wiki/log.md`**。
 6. **雙重編譯與驗證**：
    - 先編譯 Marp 簡報：`npx --yes @marp-team/marp-cli --input-dir slides --output wiki/slides --theme-set themes --html`。
