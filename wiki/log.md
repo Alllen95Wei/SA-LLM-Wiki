@@ -75,3 +75,12 @@ title: "演進日誌"
   - 教學型簡報：`slides/filesystem.md`（以 `wiki/filesystem.md` 為知識來源製作，依使用者需求擴增為 33 張投影片、其中單元四用 11 張專頁細講 `rwx` Bit Mask、特殊位元與 `umask` 逐位演算，含學習地圖、5 個單元過場頁與 5 張 Mermaid 圖表）
 - **更新檔案**：`zensical.toml`（於 `課程主題筆記` 排入 `filesystem.md` 第 4 順位）、`wiki/index.md`（狀態更新為 `已匯入` 並加入講義與教學簡報連結）、`wiki/shell.md` 與 `wiki/shell-programming.md`（補上權限與管線跨主題雙向連結）。
 - **範圍與略過說明**：依聚焦 Debian Linux 原則，略過 FreeBSD Handbook 網址（p.2）、FreeBSD `hier(7)` 專屬目錄 `/usr/src`/`/usr/obj`/`/var/db/ports`（p.13）、FreeBSD 裝置路徑 `/dev/ad*` 與 `ufs` `/etc/fstab` 實例（p.14, 16–17）、`fstat` 與 `/usr/ports` 範例輸出（p.17–18）、`(FreeBSD)` ELF 標籤與 `.tcshrc`（p.20, 32），以及整段 `Appendix: FreeBSD bonus flags`（`chflags`、`ls -ol`、`wheel` 等，p.39–41）；投影片未展開細節（`ls -l` 第三欄連結數關聯、`/etc/fstab` `Dump`/`Pass#` 與詳細選項、匿名 Pipe 程式碼、`inode` `owners(2)`/`timestamps(3)` 子欄位名、`setgid` 執行檔範例與無 `x` 時的顯示符號、`fsck`/`xattr` 操作指令）已明確標註。
+
+## [2026-11-23] ingest | LVM.pdf
+
+- **來源檔案**：`LVM.pdf`（p.1–31）
+- **新增頁面**：
+  - 主題講義：`wiki/lvm.md`（涵蓋 Linux Device Mapper 與儲存池概念、`PV → VG → LV` 六層架構與 `PE / LE` 預設 `4MB`、Thin Provisioning 之 `Thin Pool`（`metadata` + `data`）與 `Thin LV`（`-V` 上限）、CoW 快照三階段原理與 `Not backup!` / `umount` + `lvconvert --merge` 還原，以及新增／擴充 **Bottom → Top**（含 `rescan`、`fdisk` GPT 類型 `44` + `w`、`lvextend --resizefs`、`resize2fs`）對比縮容／拆碟 **Top → Bottom**（先確認已用空間小於剩餘 PV、`btrfs filesystem resize -2g`、`lvreduce`、`vgreduce`、`pvremove`）實戰）
+  - 教學型簡報：`slides/lvm.md`（以 `wiki/lvm.md` 為知識來源製作，含學習地圖、3 個單元過場頁與 4 張 Mermaid 圖表）
+- **更新檔案**：`zensical.toml`（於 `課程主題筆記` 排入 `lvm.md` 第 5 順位）、`wiki/index.md`（狀態更新為 `已匯入` 並加入講義與教學簡報連結）、`wiki/filesystem.md`（更新雙向儲存路線連結）。
+- **範圍與略過說明**：本份來源全數以 Debian 13（`trixws`）實機演練撰寫，無 FreeBSD 專屬內容需略過；投影片未展開項目（如資料 extents 搬移指令、各檔案系統縮擴容支援差異、Thin Pool 空間耗盡監控與自動擴充、Thin Snapshot 專用選項及刪除 LV/VG 指令）已於講義明確標註。
