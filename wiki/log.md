@@ -47,3 +47,12 @@ title: "演進日誌"
   - 教學型簡報：`slides/shell-programming.md`（以 `wiki/shell-programming.md` 為知識來源製作，含學習地圖、7 個單元過場頁與 5 張 Mermaid 圖表）
 - **更新檔案**：`zensical.toml`（於 `課程主題筆記` 加入 `shell-programming.md`）、`wiki/index.md`（狀態更新為 `已匯入` 並加入講義與教學簡報連結）、`wiki/shell.md`（於跨主題關聯處補上前往 `shell-programming.md` 之雙向連結）。
 - **範圍與略過說明**：依聚焦 Debian Linux 與 POSIX `sh` 原則，略過 FreeBSD/`tcsh` 專屬歷史與手冊參照（p.6、47、62）；投影片未展開項目（如 `/bin/sh` 底層套件實作、no-match 具體代碼、非 POSIX `local` 語法、其他 `set` 旗標、BRE 跳脫規則及 `sed` 原地編輯／外部腳本旗標）已於講義明確標註。
+
+## [2026-11-23] ingest | Docker_Basic.pdf
+
+- **來源檔案**：`Docker_Basic.pdf`（p.1–22）
+- **新增頁面**：
+  - 主題講義：`wiki/docker-basic.md`（涵蓋 Container／Image 與 Linux namespaces、Container vs. VM 架構與四點對比、Docker / `containerd` / OCI / `shim` / `runc` 與 `Podman` 堆疊分工、官方安裝腳本／`systemd` 啟用與 `docker` 群組設定、Docker Workflow、`docker pull` 與 Tag／多層結構、`docker run` 常用選項與 Named Volumes／Bind Mount、`docker exec` / `logs` / `ps` / `stop` / `restart` / `rm` 生命週期與考前速查表）
+  - 教學型簡報：`slides/docker-basic.md`（以 `wiki/docker-basic.md` 為知識來源製作，含學習地圖、3 個單元過場頁與 4 張 Mermaid 圖表）
+- **更新檔案**：`zensical.toml`（於 `課程主題筆記` 排入 `docker-basic.md` 第 3 順位）、`wiki/index.md`（狀態更新為 `已匯入` 並加入講義與教學簡報連結）、`wiki/shell.md`（於跨主題關聯處補上前往 `docker-basic.md` 之雙向連結）。
+- **範圍與略過說明**：本份來源全數聚焦 Linux 與 Docker 操作，無 FreeBSD 專屬內容需略過；投影片未展開項目（如除 Linux namespaces 外的資源配額機制、`OCI`/`shim`/`crun`/`Singularity` 細節、`apt` 安裝、`docker` 群組權限風險與重新登入生效細節、`Dockerfile`/`docker build` 語法及其他未提及之子指令）已於講義明確標註。
