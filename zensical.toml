@@ -5,12 +5,27 @@ site_description = "系統管理課程（Debian 13）考試複習導向 LLM Wiki
 # site_url = "https://<username>.github.io/<repo>/"
 docs_dir = "wiki"
 site_dir = "site"
+nav = [
+    { "首頁與總目錄" = "index.md" },
+    { "課程主題筆記" = [
+        { "Shell：命令列、管線與文字處理" = "shell.md" },
+    ] },
+    # 建立跨章比較或綜合整理頁時，取消註解並加入此分組：
+    # { "跨章比較與綜合整理" = [
+    #     { "LVM 與 Btrfs 快照比較" = "lvm-vs-btrfs-snapshot.md" },
+    # ] },
+    { "知識庫維運" = [
+        { "標籤索引" = "tags.md" },
+        { "演進日誌" = "log.md" },
+    ] },
+]
 
 [project.theme]
 variant = "modern"
 language = "zh-TW"
 features = [
     # "navigation.instant",
+    "navigation.sections",
     "navigation.top",
     "navigation.tracking",
     "toc.follow",

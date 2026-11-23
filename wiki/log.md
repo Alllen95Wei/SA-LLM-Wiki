@@ -21,3 +21,9 @@ title: "演進日誌"
   - 原子頁：`wiki/shell-terminal-kernel-and-execution.md`、`wiki/shell-startup-files.md`、`wiki/shell-vs-environment-variables.md`、`wiki/shell-quoting-and-expansion.md`、`wiki/shell-control-operators-and-exit-status.md`、`wiki/shell-builtins-aliases-and-job-control.md`、`wiki/io-redirection-and-pipelines.md`、`wiki/unix-philosophy-and-text-toolkit.md`、`wiki/head-tail-and-grep.md`、`wiki/cut-vs-awk.md`、`wiki/sort-uniq-and-wc.md`、`wiki/tr-and-sed.md`、`wiki/xargs-safe-arguments.md`
 - **更新頁面**：`wiki/index.md`（更新來源追蹤表狀態為 `已匯入` 並加入全部分類連結）。
 - **範圍與略過說明**：依聚焦 Debian Linux 原則，略過 FreeBSD 14+ 預設 shell 對照（p.7）、FreeBSD `sh` / `tcsh` 啟動設定檔（p.11）、`tcsh` 變數賦值語法（p.16）、FreeBSD `rc.d`（p.21）、FreeBSD 延伸旗標 `xargs -J`（p.39）與 `tcsh` 歷史替換修飾符（p.48）；未展開的實作細節（如 Debian `/bin/sh` 底層實作、`Ctrl-Z` 具體 signal 名稱、`grep -E`/`sed` 進階語法、`ShellCheck` 安裝方式）皆標註為「投影片未展開」。
+
+## [2026-11-23] refactor | 改採主題式架構與明確側邊欄排序（nav）
+
+- **架構規範更新**：修訂 `AGENTS.md`，將細粒度單點拆頁與 `src-*.md` 改為**主題式（Option A）**單篇完整講義架構，並新增 `zensical.toml` `nav` 分組排序規範與表格管線字元規範。
+- **側邊欄排序調整**：更新 `zensical.toml`，啟用 `navigation.sections` 並設定明確 `nav` 分組（`首頁與總目錄` → `課程主題筆記` → `知識庫維運`），將 `tags.md`、`log.md` 固定分離於底部，不再受 slug 字母順序影響。
+- **內容無損整併**：將原 `03_Shell.pdf` 拆分之 14 份檔案（`wiki/src-03-shell.md`、`wiki/shell-terminal-kernel-and-execution.md`、`wiki/shell-startup-files.md`、`wiki/shell-vs-environment-variables.md`、`wiki/shell-quoting-and-expansion.md`、`wiki/shell-control-operators-and-exit-status.md`、`wiki/shell-builtins-aliases-and-job-control.md`、`wiki/io-redirection-and-pipelines.md`、`wiki/unix-philosophy-and-text-toolkit.md`、`wiki/head-tail-and-grep.md`、`wiki/cut-vs-awk.md`、`wiki/sort-uniq-and-wc.md`、`wiki/tr-and-sed.md`、`wiki/xargs-safe-arguments.md`）完整整併為單一主題講義 `wiki/shell.md` 並移除舊檔，同時更新 `wiki/index.md`。
