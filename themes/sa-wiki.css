@@ -1,0 +1,197 @@
+/* @theme sa-wiki */
+@import 'default';
+
+:root {
+  --sa-indigo: #3f51b5;
+  --sa-indigo-dark: #283593;
+  --sa-blue: #1e88e5;
+  --sa-bg: #ffffff;
+  --sa-surface: #f8fafc;
+  --sa-border: #cbd5e1;
+  --sa-text: #1e293b;
+  --sa-muted: #475569;
+  --sa-code-bg: #0f172a;
+  --sa-code-fg: #e2e8f0;
+  --sa-tip-bg: #eef2ff;
+  --sa-warn-bg: #fff7ed;
+  --sa-warn-border: #ea580c;
+}
+
+section {
+  background-color: var(--sa-bg);
+  color: var(--sa-text);
+  font-family: "Noto Sans TC", "Microsoft JhengHei", "PingFang TC", system-ui, -apple-system, sans-serif;
+  font-size: 22px;
+  line-height: 1.5;
+  padding: 58px 60px 50px;
+  justify-content: flex-start;
+}
+
+section.lead {
+  justify-content: center;
+  background: linear-gradient(135deg, #eef2ff 0%, #ffffff 60%, #e0f2fe 100%);
+  border-left: 14px solid var(--sa-indigo);
+}
+
+section.lead h1 {
+  font-size: 2em;
+  border-bottom: none;
+  margin-bottom: 0.35em;
+}
+
+h1, h2, h3 {
+  color: var(--sa-indigo-dark);
+  font-weight: 700;
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 1.45em;
+  border-bottom: 3px solid var(--sa-indigo);
+  padding-bottom: 0.2em;
+  margin-bottom: 0.55em;
+}
+
+h2 {
+  font-size: 1.25em;
+  border-bottom: 2px solid var(--sa-border);
+  padding-bottom: 0.18em;
+  margin-bottom: 0.5em;
+}
+
+h3 {
+  font-size: 1.02em;
+  color: var(--sa-blue);
+  margin: 0.45em 0 0.25em;
+}
+
+p, ul, ol {
+  margin: 0.35em 0;
+}
+
+li {
+  margin: 0.22em 0;
+}
+
+a {
+  color: var(--sa-blue);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--sa-blue);
+}
+
+code {
+  font-family: ui-monospace, "Cascadia Mono", Consolas, monospace;
+  font-size: 0.88em;
+  background: #e2e8f0;
+  color: #0f172a;
+  padding: 0.08em 0.32em;
+  border-radius: 4px;
+}
+
+pre {
+  background: var(--sa-code-bg);
+  color: var(--sa-code-fg);
+  border-radius: 8px;
+  padding: 0.65em 0.9em;
+  font-size: 0.8em;
+  line-height: 1.42;
+  margin: 0.45em 0;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.12);
+}
+
+pre code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+  font-size: 1em;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.84em;
+  margin: 0.45em 0;
+}
+
+th {
+  background: var(--sa-indigo);
+  color: #ffffff;
+  font-weight: 600;
+  text-align: left;
+  padding: 0.38em 0.6em;
+}
+
+td {
+  padding: 0.34em 0.6em;
+  border-bottom: 1px solid var(--sa-border);
+  vertical-align: top;
+}
+
+tr:nth-child(even) td {
+  background: var(--sa-surface);
+}
+
+blockquote {
+  background: var(--sa-tip-bg);
+  border-left: 5px solid var(--sa-indigo);
+  padding: 0.48em 0.8em;
+  margin: 0.5em 0;
+  border-radius: 0 6px 6px 0;
+  font-size: 0.9em;
+  color: var(--sa-text);
+}
+
+blockquote.trap {
+  background: var(--sa-warn-bg);
+  border-left-color: var(--sa-warn-border);
+}
+
+header, footer {
+  color: var(--sa-muted);
+  font-size: 0.65em;
+  left: 60px;
+  right: 60px;
+}
+
+header {
+  top: 18px;
+}
+
+footer {
+  bottom: 16px;
+}
+
+section::after {
+  color: var(--sa-indigo);
+  font-size: 0.7em;
+  font-weight: 600;
+  right: 60px;
+  bottom: 16px;
+}
+
+/* 兩欄排版輔助 */
+.cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.1rem;
+  align-items: start;
+}
+
+/* Mermaid 圖表容器：隔離背景與陰影並限制高度避免超出 16:9 投影片 */
+pre.mermaid {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: inherit !important;
+  padding: 0.2rem 0;
+  margin: 0.4rem auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+pre.mermaid svg {
+  max-height: 340px;
+  max-width: 100%;
+  height: auto;
+}

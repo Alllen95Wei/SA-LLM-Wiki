@@ -1,8 +1,9 @@
 # 課程原始簡報 PDF（嚴格唯讀，不納入公開版控）
 raw/
 
-# Zensical 靜態網站建置輸出與快取
+# Zensical 與 Marp 編譯輸出與快取
 site/
+wiki/slides/
 .cache/
 
 # Python / OS 暫存檔

@@ -14,6 +14,9 @@ updated: 2026-11-23
 
 > 一句話考試定位摘要：掌握 Terminal / Shell / Kernel 分層與 Enter 後五階段展開順序、Bash 啟動檔與變數引號規則、工作控制與 I/O 重導向順序陷阱，以及 UNIX 小工具管線組合與安全檔名處理。（`03_Shell.pdf, p.1-49`）
 
+!!! info "考前簡報版"
+    想用鍵盤翻頁快速複習本單元重點與 Mermaid 圖表，請點此：[開啟 HTML 簡報版（新分頁）](slides/shell.html){ target="_blank" }。
+
 ## 學習目標與課程原則
 
 - **來源簡報**：`03_Shell.pdf`（共 49 頁；NYCU CS IT Center，*Shells — Command-line interfaces, pipelines, and everyday text processing*）。（`03_Shell.pdf, p.1`）
